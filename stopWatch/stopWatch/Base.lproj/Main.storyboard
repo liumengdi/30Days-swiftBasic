@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="stopWatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsV-rd-L53">
+                                <rect key="frame" x="255" y="40" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1Yl-wY-Pns"/>
+                                    <constraint firstAttribute="width" constant="100" id="Vlu-cF-nxf"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Un0-Iy-4tr"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qmp-YY-byY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-s2-K5g">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4tc-N6-c0x">
+                                        <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkZ-Vd-CSB">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="play"/>
+                                                <connections>
+                                                    <action selector="handleStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1U3-OW-XZL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tue-X9-e3S">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="333.5"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="pause"/>
+                                                <connections>
+                                                    <action selector="handlePause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cNL-Bo-x7d"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qmp-YY-byY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4LR-EZ-jIs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qmp-YY-byY" secondAttribute="bottom" id="CdO-eQ-Dgm"/>
+                            <constraint firstItem="Qmp-YY-byY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="G45-HG-467"/>
+                            <constraint firstAttribute="trailing" secondItem="OsV-rd-L53" secondAttribute="trailing" constant="20" id="HeS-kG-ZOY"/>
+                            <constraint firstItem="OsV-rd-L53" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="lO2-ol-krq"/>
+                            <constraint firstAttribute="trailing" secondItem="Qmp-YY-byY" secondAttribute="trailing" id="nqa-w9-aal"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="display" destination="JV4-s2-K5g" id="4AI-EL-3id"/>
+                        <outlet property="pauseBtn" destination="Tue-X9-e3S" id="8c4-rg-sGe"/>
+                        <outlet property="resetBtn" destination="OsV-rd-L53" id="nNQ-Zf-cWh"/>
+                        <outlet property="startBtn" destination="GkZ-Vd-CSB" id="4rd-2h-EDr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="242"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pause" width="42" height="56"/>
+        <image name="play" width="48" height="61"/>
+    </resources>
+</document>
