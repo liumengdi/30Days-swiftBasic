@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,37 +16,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.isPagingEnabled = true
-        scrollView.bounces = false
-        scrollView.showsHorizontalScrollIndicator = false
+        let firstViewController: FirstViewController = FirstViewController(nibName: "FirstViewController", bundle: nil)
+        let centerViewController: CenterViewController = CenterViewController(nibName: "CenterViewController", bundle: nil)
+        let thirdViewController: ThirdViewController = ThirdViewController(nibName: "ThirdViewController", bundle: nil)
         
-        let first = UIViewController()
-        first.view.backgroundColor = UIColor.red
+        self.addChildViewController(firstViewController)
+        self.addChildViewController(centerViewController)
+        self.addChildViewController(thirdViewController)
         
-        let second = UIViewController()
-        second.view.backgroundColor = UIColor.yellow
+        scrollView.addSubview(firstViewController.view)
+        scrollView.addSubview(centerViewController.view)
+        scrollView.addSubview(thirdViewController.view)
         
-        self.view.backgroundColor = UIColor.brown
+        var centerViewFrame: CGRect = centerViewController.view.frame
+        centerViewFrame.origin.x = self.view.frame.width
+        centerViewController.view.frame = centerViewFrame
         
-        self.addChildViewController(first)
-        scrollView.addSubview(first.view)
+        var thirdViewFrame: CGRect = thirdViewController.view.frame
+        thirdViewFrame.origin.x = 2 * self.view.frame.width
+        thirdViewController.view.frame = thirdViewFrame
         
-        self.addChildViewController(second)
-        scrollView.addSubview(second.view)
-        
-        var rightViewFrame: CGRect = second.view.frame
-        rightViewFrame.origin.x = 2 * second.view.frame.width
-        second.view.frame = rightViewFrame
-        
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.view.frame.size.height)
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        scrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.view.frame.size.height)
+
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+
+
+
+
+
 }
 
